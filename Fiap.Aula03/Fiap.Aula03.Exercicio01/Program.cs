@@ -30,19 +30,23 @@ namespace Fiap.Aula03.Exercicio01
             var especial = bool.Parse(Console.ReadLine());
 
             //Instanciar os objetos e atribuir os valores aos seus atributos (propriedades)
-            var cliente = new Cliente();
-            cliente.Nome = nome;
-            cliente.Telefone = telefone;
-            cliente.Cpf = cpf;
+            //Passa o nome do parâmetro e o valor no método
+            var cliente = new Cliente(nome: nome, telefone: telefone, cpf: cpf);
+            //var cliente = new Cliente(nome, cpf, telefone);
 
-            var cp = new ContaPoupanca();
-            cp.Numero = numeroPoupanca;
+            //ctr + K + C -> comenta o bloco selecionado
+            //cliente.Nome = nome;
+            //cliente.Telefone = telefone;
+            //cliente.Cpf = cpf;
 
-            var cc = new ContaCorrente();
-            cc.Cliente = cliente;
-            cc.ContaPoupanca = cp;
-            cc.Numero = numeroCc;
-            cc.Especial = especial;
+            var cp = new ContaPoupanca(numeroPoupanca);
+            //cp.Numero = numeroPoupanca;
+
+            var cc = new ContaCorrente(cliente, cp, numeroCc, especial);
+            //cc.Cliente = cliente;
+            //cc.ContaPoupanca = cp;
+            //cc.Numero = numeroCc;
+            //cc.Especial = especial;
             
             if (especial)
             {

@@ -15,6 +15,15 @@ namespace Fiap.Aula03.Exercicio01.Models
         public ContaPoupanca ContaPoupanca { get; set; }
         public double Juros { get; set; }
 
+        //Construtor
+        public ContaCorrente(Cliente cliente, ContaPoupanca poupanca, double numero, bool especial)
+        {
+            Cliente = cliente;
+            ContaPoupanca = poupanca;
+            Numero = numero;
+            Especial = especial;
+        }
+
         //Métodos
         public bool Depositar(decimal valor)
         {

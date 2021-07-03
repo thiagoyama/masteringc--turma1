@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fiap.Aula03.Exercicio01.Models
+namespace Fiap.Aula04.Exercicio01.Models
 {
-    class Cliente
+    class Fornecedor
     {
-        //Propriedades prop -> tab tab
+        //Propriedades
+        public int Id { get; set; }
         public string Nome { get; set; }
-        public string Cpf { get; set; }
         public string Telefone { get; set; }
 
         //Construtor
-        //ctor -> tab tab 
-        public Cliente(string nome, string cpf, string telefone)
+        public Fornecedor(int id, string nome, string telefone)
         {
+            Id = id;
             Nome = nome;
-            Cpf = cpf;
             Telefone = telefone;
         }
     }
