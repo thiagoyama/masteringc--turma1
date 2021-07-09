@@ -4,11 +4,9 @@ using System.Text;
 
 namespace Fiap.Aula03.Exercicio01.Models
 {
-    class ContaCorrente
+    class ContaCorrente : Conta
     {
         //Propriedades prop -> tab tab
-        public decimal Saldo { get; private set; }
-        public double Numero { get; set; }
         public bool Especial { get; set; }
         public decimal Limite { get; set; }
         public Cliente Cliente { get; set; }
@@ -25,16 +23,6 @@ namespace Fiap.Aula03.Exercicio01.Models
         }
 
         //Métodos
-        public bool Depositar(decimal valor)
-        {
-            if (valor > 0)
-            {
-                Saldo += valor;
-                return true;
-            }
-            return false;
-        }
-
         public bool Retirar(decimal valor)
         {
             /*
@@ -61,7 +49,7 @@ namespace Fiap.Aula03.Exercicio01.Models
                 Saldo -= valor;
                 return true;
             }
-            return false;
+            throw new Exception("Saldo insuficiente");
         }
 
         public decimal RetornarSaldoTotal()

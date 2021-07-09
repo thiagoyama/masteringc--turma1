@@ -75,14 +75,26 @@ namespace Fiap.Aula03.Exercicio01
                     case 1:
                         Console.WriteLine("Digite o valor para depósito");
                         var valor = decimal.Parse(Console.ReadLine());
-                        cc.Depositar(valor);
-                        Console.WriteLine($"O saldo é {cc.Saldo} e o saldo total é {cc.RetornarSaldoTotal()}");
+                        try
+                        {
+                            cc.Depositar(valor);
+                            Console.WriteLine($"O saldo é {cc.Saldo} e o saldo total é {cc.RetornarSaldoTotal()}");
+                        }catch(Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         break;
                     case 2:
                         Console.WriteLine("Digite o valor para saque");
                         valor = decimal.Parse(Console.ReadLine());
-                        cc.Retirar(valor);
-                        Console.WriteLine($"O saldo é {cc.Saldo} e o saldo total é {cc.RetornarSaldoTotal()}");
+                        try
+                        {
+                            cc.Retirar(valor);
+                            Console.WriteLine($"O saldo é {cc.Saldo} e o saldo total é {cc.RetornarSaldoTotal()}");
+                        } catch(Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         break;
                     case 3:
                         Console.WriteLine("Digite o valor para transferência");

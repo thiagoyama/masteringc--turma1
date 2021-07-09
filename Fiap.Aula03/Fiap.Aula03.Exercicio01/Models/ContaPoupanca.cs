@@ -4,11 +4,9 @@ using System.Text;
 
 namespace Fiap.Aula03.Exercicio01.Models
 {
-    class ContaPoupanca
+    class ContaPoupanca : Conta, IContaInvestimento
     {
         //Propriedades
-        public decimal Saldo { get; private set; }
-        public double Numero { get; set; }
         public decimal Rendimentos { get; set; }
 
         //Construtor
@@ -18,17 +16,6 @@ namespace Fiap.Aula03.Exercicio01.Models
         }
 
         //Métodos
-        public bool Depositar(decimal valor)
-        {
-            //valida se o valor de depósito é positivo            
-            if (valor > 0)
-            {
-                Saldo += valor;
-                return true;
-            }
-            return false;
-        }
-        
         public bool Retirar(decimal valor)
         {
             //valida se o saldo é suficiente
@@ -37,7 +24,12 @@ namespace Fiap.Aula03.Exercicio01.Models
                 Saldo -= valor;
                 return true;
             }
-            return false;
+            throw new Exception("Saldo insuficiente");
+        }
+
+        public decimal CalcularRetornoInvestimento(decimal taxa)
+        {
+            return Saldo * taxa;
         }
     }
 }
